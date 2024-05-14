@@ -7,9 +7,15 @@ Automating, managing and orchestrating the launching and scaling of cloud servic
 If we have 100 instance that all need nginx on them I have the knowledge and the capacity to achieve this goal, however it would take some time. IaC speeds up this process.
 
 ## Why Ansible
-- Open source(free)
-- Simple to use(YAML)
-- Powerful
+- **Open source(free)**<Br>
+- **Simple to use(YAML)**<br>
+qq
+- **Powerful**<br>
+    **Comprehensive Modules:** Ansible provides a vast library of modules for managing a wide range of system tasks, from package installation to cloud provisioning. This extensibility makes it versatile for different environments.<br>
+**Idempotency:** Ansible ensures that running a playbook multiple times will produce the same result, preventing unintended changes and ensuring system stability.<br>
+- **Agentless**<br>
+    **No Agents Required:** Ansible operates without the need for agents or daemons on managed nodes. It uses standard SSH for Unix-like systems and WinRM for Windows systems. This simplifies setup and reduces maintenance overhead.<br>
+    **Security:** Leveraging existing, secure protocols (SSH/WinRM) means fewer security concerns related to running additional software on managed nodes.<br>
 ## How Ansible works
 Control Node: The system where Ansible is installed and from which commands are run.<br>
 Managed Nodes: The systems that Ansible manages, also known as target systems or hosts.<br>
