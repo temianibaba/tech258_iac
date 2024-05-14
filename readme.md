@@ -24,5 +24,21 @@ Ansible uses an inventory file to define the list of managed nodes. This file ca
 Modules are the units of work in Ansible. They are scripts that perform specific tasks like installing packages, managing services, or handling files. Ansible comes with a large number of built-in modules, and users can write custom ones.<br>
 ![alt text](images/inside_ansible.png)<br>
 Playbooks are YAML files that define a series of tasks to be executed on the managed nodes. They allow for complex configurations and workflows, specifying the desired state of the systems.<br>
+**Setup**<br>
+After install ansible on your instance you have to move your private ssh key into your instance and configure the hosts file so that ansible knows where the key is to ssh into other instances
+```bash
+[agent_nodes]
+web ansible_host=34.254.90.199
+db ansible_host=54.246.172.14
+ 
+[agent_nodes:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/tech258.pem
+
+# or
+
+[web]
+ec2-instance-app ansible_host=54.216.9.103 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/tech258.pem
+```
 
 ## Why Terraform
