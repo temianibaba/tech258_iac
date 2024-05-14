@@ -9,7 +9,8 @@ If we have 100 instance that all need nginx on them I have the knowledge and the
 ## Why Ansible
 - **Open source(free)**<Br>
 - **Simple to use(YAML)**<br>
-qq
+    **Simple Language (YAML):** Ansible uses YAML for its playbooks, which is easy to read and write. This lowers the barrier to entry for new users and allows non-developers to understand and contribute to automation tasks.<br>
+    **Declarative Configuration:** Users declare the desired state of the system, and Ansible ensures it is achieved. This reduces the complexity involved in scripting and imperative programming.<br>
 - **Powerful**<br>
     **Comprehensive Modules:** Ansible provides a vast library of modules for managing a wide range of system tasks, from package installation to cloud provisioning. This extensibility makes it versatile for different environments.<br>
 **Idempotency:** Ansible ensures that running a playbook multiple times will produce the same result, preventing unintended changes and ensuring system stability.<br>
