@@ -1,0 +1,12 @@
+---
+# add name of the host: web
+# see the logs whilst executing
+# provide admin access
+- hosts: db
+  gather_facts: yes
+  become: true
+
+# run provison.sh bash script
+  tasks:
+  - name: Run provision.sh bash script
+    command: bash ./environment/db/provision.sh

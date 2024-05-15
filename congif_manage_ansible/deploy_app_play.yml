@@ -1,0 +1,33 @@
+---
+# add name of the host: web
+# see the logs whilst executing
+# provide admin access
+- hosts: web
+  gather_facts: yes
+  become: true
+
+# run provison.sh bash script
+  tasks:
+  - name: Run provision.sh bash script
+    command: bash ./environment/app/provision.sh
+
+# make env variable 
+  - name: env var 
+    shell: |
+      export DB_HOST=mongodb://172.31.38.159:27017/posts
+
+# install pm2 
+  - name: Install pm2
+    command: npm install pm2 -g	
+
+# kill all processes with pm2
+  - name: Kill all processes with pm2
+    command: pm2 kill
+
+# navigate to /home/ubuntu/app/ folder
+  - name: Navigate to /app/ folder
+    shell: |
+      cd /home/ubuntu/app/seeds
+      node seed.js &
+      cd /home/ubuntu/app
+      pm2 start app.js

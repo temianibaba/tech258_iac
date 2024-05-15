@@ -67,7 +67,7 @@ ssh_args = -o StrictHostKeyChecking=no
 ```
 ## Create a play to install nginx on web server
 Creating a playbook to automate configuration of nginx without SSH into machine
-1. sudo nano nginx-play.yml 
+1. `sudo nano nginx-play.yml`<br>
 (for YML files we seperate steps with ---)
 2. Write pseudo code  in comments and code
 ```yml
