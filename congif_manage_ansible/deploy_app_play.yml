@@ -16,18 +16,15 @@
     shell: |
       export DB_HOST=mongodb://172.31.38.159:27017/posts
 
-# install pm2 
-  - name: Install pm2
-    command: npm install pm2 -g	
-
-# kill all processes with pm2
-  - name: Kill all processes with pm2
-    command: pm2 kill
-
 # navigate to /home/ubuntu/app/ folder
   - name: Navigate to /app/ folder
     shell: |
+      cd /home/ubuntu/app
+      export DB_HOST=mongodb://172.31.41.153:27017/posts
+      sudo -E npm install
+      sudo -E npm install pm2 -g
       cd /home/ubuntu/app/seeds
       node seed.js &
       cd /home/ubuntu/app
-      pm2 start app.js
+      sudo pm2 kill
+      sudo -E pm2 start app.js
