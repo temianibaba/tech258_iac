@@ -15,7 +15,7 @@
 10.  sudo nano hosts
 # app ip 34.254.90.199 db ip 54.246.172.14
 11.  sudo ansible web -m ping
-12.  scp key into .ssh folder scp -i ~/.ssh/tech258.pem ~/.ssh/tech258.pem ubuntu@34.248.241.223:~/.ssh/
+12.  scp -i ~/.ssh/tech258.pem ~/.ssh/tech258.pem ubuntu@34.248.241.223:~/.ssh/ # scp key into .ssh folder 
 13.  sudo chmod 400 "tech258.pem"
 14.  can now ssh into app or db from controller
 15.  cd /etc/ansible
