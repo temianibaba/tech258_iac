@@ -12,9 +12,11 @@
     command: bash ./environment/app/provision.sh
 
 # make env variable 
-  - name: env var 
-    shell: |
-      export DB_HOST=mongodb://172.31.38.159:27017/posts
+  - name: set DB_host
+    lineinfile:
+      path: /etc/environment
+      line: 'DB_HOST=mongodb://18.201.198.74:27017/posts'
+      create: yes
 
 # navigate to /home/ubuntu/app/ folder
   - name: Navigate to /app/ folder
