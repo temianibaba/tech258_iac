@@ -1,6 +1,6 @@
 # Ansible
 ![alt text](../images/ansible.png)
-
+https://github.com/khanmaster/sre_IaC_ansible/blob/main/mongo_config.yml
 1. Create ec2 run update upgrade
 ```bash
 2. sudo apt-get install software-properties-common
@@ -9,7 +9,7 @@
 5. sudo apt-get install ansible -y
 6. sudo ansible --version
 7. cd /etc/ansible # (where we run commands)
-8. ls ----> ansible.cfg hosts roles
+8. ls ----> ansible.cfg hosts rolesx  x 
 # app machine = web db machine = db
 9. sudo ansible web -m ping
 10.  sudo nano hosts

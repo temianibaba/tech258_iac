@@ -23,7 +23,7 @@ Managed Nodes: The systems that Ansible manages, also known as target systems or
 Ansible uses an inventory file to define the list of managed nodes. This file can be in various formats such as INI, YAML, or dynamic inventory scripts.<br>
 Modules are the units of work in Ansible. They are scripts that perform specific tasks like installing packages, managing services, or handling files. Ansible comes with a large number of built-in modules, and users can write custom ones.<br>
 ![alt text](images/inside_ansible.png)<br>
-**Playbooks** are YAML files that define a series of tasks to be executed on the managed nodes. They allow for complex configurations and workflows, specifying the desired state of the systems.<br>
+
 **Setup**<br>
 After install ansible on your instance you have to move your private ssh key into your instance and configure the hosts file so that ansible knows where the key is to ssh into other instances
 ```bash
@@ -40,5 +40,17 @@ ansible_ssh_private_key_file=~/.ssh/tech258.pem
 [web]
 ec2-instance-app ansible_host=54.216.9.103 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/tech258.pem
 ```
-
+**Playbooks** are YAML files that define a series of tasks to be executed on the managed nodes. They allow for complex configurations and workflows, specifying the desired state of the systems.<br>
+## What is Terraform
+Is an infrastructure as code tool that lets you build, change, and version cloud and on-prem resources safely and efficiently.
 ## Why Terraform
+- Open source
+- Widely used
+- Easy to use (comprehesive documentation)
+- Not cloud dependent (communicates with multiple clouds)<br>
+- Powerful (tf states are recognised as desired or current. Changes on AWS (current) may not be what terraform plan (desired) has)
+- More efficient than ansible (takes many lines to create ec2 instance in ansible)
+![alt text](images/terraform.png)
+## How to use Terraform
+Terraform uses .tf files to plan apply and destroy instructions. To access cloud services access and secret keys are needed in Terraform. **Keys** are stored as environment.<br>
+Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, these files configure your instance.
