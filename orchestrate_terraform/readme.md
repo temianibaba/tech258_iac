@@ -64,6 +64,7 @@ resource "aws_instance" "app_instance" {
 5. terraform apply # makes your instance
 ```
 ## VPC
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc.html
 When creating a Virtual Private Cloud there are a few key things
 1. Make VPC with cidr block
 2. Make subnets with cidr blocks within the VPC
