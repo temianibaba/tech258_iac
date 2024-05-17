@@ -48,9 +48,16 @@ Is an infrastructure as code tool that lets you build, change, and version cloud
 - Widely used
 - Easy to use (comprehesive documentation)
 - Not cloud dependent (communicates with multiple clouds)<br>
-- Powerful (tf states are recognised as desired or current. Changes on AWS (current) may not be what terraform plan (desired) has)
+- Powerful (.tf states are recognised as desired or current. Changes on AWS (current) may not be what terraform plan (desired) has. Terraform is smart enough to realise when the current is not the same as the desired plan, so Terraform will inform you of the differences between the two states before you apply the new desired state.)
 - More efficient than ansible (takes many lines to create ec2 instance in ansible)
 ![alt text](images/terraform.png)
 ## How to use Terraform
 Terraform uses .tf files to plan apply and destroy instructions. To access cloud services access and secret keys are needed in Terraform. **Keys** are stored as environment.<br>
 Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, these files configure your instance.
+
+## Securing in Terraform
+- Don't hardcode access keys
+- DRY (Make variable.tf)
+- Hide confidential information (.gitignore)
+![alt text](images/securing_terraform.png)
+## Terraform with multiple providers
