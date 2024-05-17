@@ -2,7 +2,11 @@
 ## Definition
 Helps us codify anything and everything, it helps us write a language that we can read and understand to instruct machines to execute tasks accordingly.<br>
 Automating, managing and orchestrating the launching and scaling of cloud services.
-
+**Configuration management** changing things within an instance. Installations Updates etc<br>
+**Orchestration** is working outside the instances. VPC SG Ports<br>
+1. Provisioning (providing) main.tf Terraform
+2. Configures playbook.yml Ansible<br>
+![alt text](images/IaC.png)
 ## Benefits
 If we have 100 instance that all need nginx on them I have the knowledge and the capacity to achieve this goal, however it would take some time. IaC speeds up this process.
 
@@ -22,7 +26,7 @@ Control Node: The system where Ansible is installed and from which commands are 
 Managed Nodes: The systems that Ansible manages, also known as target systems or hosts.<br>
 Ansible uses an inventory file to define the list of managed nodes. This file can be in various formats such as INI, YAML, or dynamic inventory scripts.<br>
 Modules are the units of work in Ansible. They are scripts that perform specific tasks like installing packages, managing services, or handling files. Ansible comes with a large number of built-in modules, and users can write custom ones.<br>
-![alt text](images/inside_ansible.png)<br>
+![alt text](images/ansible.png)<br>
 
 **Setup**<br>
 After install ansible on your instance you have to move your private ssh key into your instance and configure the hosts file so that ansible knows where the key is to ssh into other instances
@@ -49,7 +53,7 @@ Is an infrastructure as code tool that lets you build, change, and version cloud
 - Easy to use (comprehesive documentation)
 - Not cloud dependent (communicates with multiple clouds)<br>
 - Powerful (.tf states are recognised as desired or current. Changes on AWS (current) may not be what terraform plan (desired) has. Terraform is smart enough to realise when the current is not the same as the desired plan, so Terraform will inform you of the differences between the two states before you apply the new desired state.)
-- More efficient than ansible (takes many lines to create ec2 instance in ansible)
+- More efficient than ansible (takes many lines to create ec2 instance in ansible)<br>
 ![alt text](images/terraform.png)
 ## How to use Terraform
 Terraform uses .tf files to plan apply and destroy instructions. To access cloud services access and secret keys are needed in Terraform. **Keys** are stored as environment.<br>
@@ -58,7 +62,7 @@ Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, t
 ## Securing in Terraform
 - Don't hardcode access keys
 - DRY (Make variable.tf)
-- Hide confidential information (.gitignore)
+- Hide confidential information (.gitignore)<br>
 ![alt text](images/securing_terraform.png)
 ## Terraform with multiple providers
 ```bash
@@ -75,3 +79,4 @@ resource "github_repository" "automated_repo" {
   visibility  = "public"  # Change to "private" if needed
 }
 ```
+

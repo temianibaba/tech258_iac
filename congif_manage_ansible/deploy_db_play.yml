@@ -10,3 +10,25 @@
   tasks:
   - name: Run provision.sh bash script
     command: bash ./environment/db/provision.sh
+
+# working script
+# ---
+# - hosts: db
+
+#   gather_facts: yes
+
+#   become: true
+
+#   tasks:
+#   - name: Update package lists
+#     apt:
+#       update_cache: yes
+
+
+#   - name: Upgrade packages
+#     apt:
+#       upgrade: yes
+#       autoremove: yes
+
+#   - name: install and configure Mongodb
+#     apt: pkg=mongodb state=present

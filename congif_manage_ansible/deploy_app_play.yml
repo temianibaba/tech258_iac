@@ -30,3 +30,48 @@
       cd /home/ubuntu/app
       sudo pm2 kill
       sudo -E pm2 start app.js
+
+# working script
+# ---
+# - hosts: web
+#   gather_facts: yes
+#   become: yes
+#   tasks:
+#     - name: Update package lists
+#       apt:
+#         update_cache: yes
+
+#     - name: Upgrade packages
+#       apt:
+#         upgrade: yes
+#         autoremove: yes
+
+#     - name: Installing nginx web server
+#       apt: pkg=nginx state=present
+    
+#     - name: Installing node
+#       apt: 
+#         pkg: nodejs
+#         state: present
+
+#     - name: remove app so new one can be cloned
+#       shell: |
+#         rm -r cicd_learning
+#         apt-get install npm -y
+
+#     - name: clone app github repository
+#       shell: |
+#         git clone https://github.com/Martin-Muraskovas/cicd_learning
+
+#     - name: Update and upgrade apt packages
+#       apt:
+#         upgrade: yes
+#         update_cache: yes
+
+#     - name: install pm2
+#       shell: |
+#         cd /home/ubuntu/cicd_learning/app
+#         npm install
+#         npm install pm2@4.0.0 -g
+#         pm2 kill
+#         pm2 start app.js
