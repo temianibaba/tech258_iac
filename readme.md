@@ -61,3 +61,17 @@ Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, t
 - Hide confidential information (.gitignore)
 ![alt text](images/securing_terraform.png)
 ## Terraform with multiple providers
+```bash
+provider "github" {
+ 
+  token = var.GITHUB_TOKEN
+ 
+}
+ 
+ 
+resource "github_repository" "automated_repo" {
+  name        = var.repo_name
+  description = "terraform repo"
+  visibility  = "public"  # Change to "private" if needed
+}
+```
