@@ -173,3 +173,4 @@ resource "github_repository" "automated_repo" {
 - **HARD CODING KEYS** Don't hardcode access keys and secret access keys
 - Not everything needs ""
 - Only do variables for names
+- Hide variables in .gitignore for security purposes
