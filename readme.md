@@ -54,7 +54,6 @@ Is an infrastructure as code tool that lets you build, change, and version cloud
 - Not cloud dependent (communicates with multiple clouds)<br>
 - Powerful (.tf states are recognised as desired or current. Changes on AWS (current) may not be what terraform plan (desired) has. Terraform is smart enough to realise when the current is not the same as the desired plan, so Terraform will inform you of the differences between the two states before you apply the new desired state.)
 - More efficient than ansible (takes many lines to create ec2 instance in ansible)<br>
-![alt text](images/terraform.png)
 ## How to use Terraform
 Terraform uses .tf files to plan apply and destroy instructions. To access cloud services access and secret keys are needed in Terraform. **Keys** are stored as environment.<br>
 Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, these files configure your instance.
@@ -65,7 +64,38 @@ Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, t
 - Hide confidential information (.gitignore)<br>
 ![alt text](images/securing_terraform.png)
 ## Terraform with multiple providers
+![alt text](images/terraform.png)<br>
+Terraform is powerful, it can be used to deploy on multiple cloud providers at once! Underneath is a main.tf file that can be used to deploy an ec2 instance on aws and make a github repo.
 ```bash
+provider "aws" {
+
+    # which region eu-west-1
+    region = var.region
+}
+resource "aws_instance" "app_instance" {
+
+    # pick the ami
+    ami = var.app_ami_id
+    # "ami-02f0341ac93c96375"
+
+    # size of instance/ type of instance - t2micro
+    instance_type = var.instance_type
+    
+    subnet_id = aws_subnet.tech258_muyis_pub_subnet.id
+
+    vpc_security_group_ids = [aws_security_group.tech258_muyis_allow_22_80_3000.id]
+
+    # associate pub ip
+    associate_public_ip_address = true
+    
+    # ssh key pair
+    key_name = var.ssh
+    
+    # name instance
+    tags = {
+        Name = var.name_instance
+    }
+}
 provider "github" {
  
   token = var.GITHUB_TOKEN
