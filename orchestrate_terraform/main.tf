@@ -104,3 +104,11 @@ resource "github_repository" "automated_repo" {
   description = "terraform repo"
   visibility  = "public"  # Change to "private" if needed
 }
+# store in s3 bucket
+# terraform {
+#   backend "s3" {
+#     bucket = "tech258-shafique-terraform-bucket"
+#     key = "dev/terraform.tfstate"
+#     region = "eu-west-1"
+#   }
+# }

@@ -64,7 +64,7 @@ Terraform reads HCL (HashiCorp) files which are like JSON files **Key=Value**, t
 - Hide confidential information (.gitignore)<br>
 ![alt text](images/securing_terraform.png)
 ## Terraform with multiple providers
-![alt text](images/terraform.png)<br>
+![alt text](images/terraform_diagram.png)
 Terraform is powerful, it can be used to deploy on multiple cloud providers at once! Underneath is a main.tf file that can be used to deploy an ec2 instance on aws and make a github repo.
 ```bash
 provider "aws" {
