@@ -126,3 +126,23 @@ Terraform creates a .tfstate file which is a plan of the infrastructure you have
 ### S3 and statelock
 ![alt text](images/terraform_diagram.png)<br>
 You can also store state files in a S3 bucket in your VPC. This allows selected access to your terraform state files.
+### Why statelock
+- Preventing Conflicts<br>
+- Ensuring Consistency
+### How?
+1. **Acquiring the Lock:** When you run a Terraform command that modifies the state (like apply, plan, destroy, etc.), Terraform attempts to acquire a lock on the state file before making any changes.
+2. **Releasing the Lock:** Once the operation is complete, Terraform releases the lock, allowing other processes to acquire it for their operations.
+### Example
+```bash
+terraform {
+  backend "s3" {
+    bucket         = "my-terraform-state"
+    key            = "path/to/my/key"
+    region         = "us-west-2"
+    dynamodb_table = "my-lock-table"
+  }
+}
+# The dynamodb_table specifies the DynamoDB table used for locking.
+
+terraform force-unlock LOCK_ID
+```
