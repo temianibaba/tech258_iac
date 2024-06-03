@@ -123,5 +123,6 @@ resource "github_repository" "automated_repo" {
 
 ## How Terraform manages states
 Terraform creates a .tfstate file which is a plan of the infrastructure you have built. This is saved locally on to your machine. When ever you want to make a change Terraform compares your desired state to the current state of your infrastructure and then overwrites the state file accordingly. This file is abstracted from your terraform file so it must be kept safe from public view, to do this I put it inside of a .gitignore file.
-
-![alt text](images/terraform_diagram.png)
+### S3 and statelock
+![alt text](images/terraform_diagram.png)<br>
+You can also store state files in a S3 bucket in your VPC. This allows selected access to your terraform state files.
