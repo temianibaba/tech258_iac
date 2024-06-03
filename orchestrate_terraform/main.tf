@@ -107,7 +107,7 @@ resource "github_repository" "automated_repo" {
 # store in s3 bucket
 # terraform {
 #   backend "s3" {
-#     bucket = "tech258-shafique-terraform-bucket"
+#     bucket = "tech258-muyis-terraform-bucket"
 #     key = "dev/terraform.tfstate"
 #     region = "eu-west-1"
 #   }

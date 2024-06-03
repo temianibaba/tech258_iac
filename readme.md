@@ -52,6 +52,17 @@ Is an infrastructure as code tool that lets you build, change, and version cloud
 - Widely used
 - Easy to use (comprehesive documentation)
 - Not cloud dependent (communicates with multiple clouds)<br>
+  ```bash
+  provider "google" {
+  project     = "my-project-id"
+  region      = "us-central1"
+  }
+  provider "azurerm" {}
+  provider "aws" {
+  region = "us-east-1"
+  }
+  provider "github" {}
+  ```
 - Powerful (.tf states are recognised as desired or current. Changes on AWS (current) may not be what terraform plan (desired) has. Terraform is smart enough to realise when the current is not the same as the desired plan, so Terraform will inform you of the differences between the two states before you apply the new desired state.)
 - More efficient than ansible (takes many lines to create ec2 instance in ansible)<br>
 ## How to use Terraform
